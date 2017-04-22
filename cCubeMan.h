@@ -2,11 +2,11 @@
 #include"cCharacter.h"
 class cCubeNode;
 
-class cCubeMen : public cCharacter
+class cCubeMan : public cCharacter
 {
 public:
-	cCubeMen();
-	~cCubeMen();
+	cCubeMan();
+	~cCubeMan();
 
 public: // 각각의 객채를 가지고있고 노드에서 처리
 	cCubeNode*			m_pRoot;

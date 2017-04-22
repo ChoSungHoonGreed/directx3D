@@ -38,7 +38,7 @@ void cMainGame::Setup()
 
 
 
-	m_pCubeMen = new cCubeMen;
+	m_pCubeMen = new cCubeMan;
 	m_pCubeMen->Setup();
 
 	m_pCamera = new cCamera;

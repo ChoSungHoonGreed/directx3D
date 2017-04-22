@@ -7,7 +7,7 @@ public:
 	~cHead();
 
 	virtual void Setup() override;
-
+	virtual void Update() override;
 
 
 };

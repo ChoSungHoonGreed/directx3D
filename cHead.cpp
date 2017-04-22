@@ -49,3 +49,18 @@ void cHead::Setup()
 	}
 }
 
+void cHead::Update()
+{
+	cCubeNode::Update();
+	float deltaX = cCubeNode::GetRotDeltaX();
+
+	D3DXMATRIXA16 matR, matRY, matT;
+	D3DXMatrixIdentity(&matR);
+	D3DXMatrixIdentity(&matT);
+	D3DXMatrixIdentity(&matRY);
+
+
+	deltaX += 0.1f;
+	D3DXMatrixRotationY(&matRY, deltaX);
+}
+

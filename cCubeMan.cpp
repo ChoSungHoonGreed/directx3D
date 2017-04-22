@@ -8,7 +8,7 @@
 #include "cRightArm.h"
 #include "cLeftLeg.h"
 #include "cRightLeg.h"
-cCubeMen::cCubeMen()
+cCubeMan::cCubeMan()
 	:m_pRoot(NULL)
 	//:>
 {
@@ -16,7 +16,7 @@ cCubeMen::cCubeMen()
 }
 
 
-cCubeMen::~cCubeMen()
+cCubeMan::~cCubeMan()
 {
 	//:>
 	//:>선생님
@@ -25,7 +25,7 @@ cCubeMen::~cCubeMen()
 	//SAFE_DELETE(m_pRoot);
 }
 
-void cCubeMen::Setup()
+void cCubeMan::Setup()
 {
 
 	{//내가한거
@@ -106,7 +106,7 @@ void cCubeMen::Setup()
 	//:>
 }
 
-void cCubeMen::Update()
+void cCubeMan::Update()
 {
 	{//내가한거
 	 /*	cCharacter::Update();
@@ -119,15 +119,16 @@ void cCubeMen::Update()
 	//선생님이 한거
 	{
 		cCharacter::Update();
+
 		if (m_pRoot)
 			m_pRoot->Update();
 	}
-
+	
 
 	//:>
 }
 
-void cCubeMen::Render()
+void cCubeMan::Render()
 {
 	//m_pRoot->Render();
 

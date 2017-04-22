@@ -99,80 +99,80 @@ void cCubeNode::Update()
 		//}
 
 
-		if (*m_isBreakTime)//이즈 펄스로 할거임 우선 무조껀 if문 들어가게 수정.
-		{
-			switch (m_eCharater)
-			{
-			case M_BODY:
-				break;
-			case M_HEAD:
-				//if()무슨 값이 false이면 흔들자.
-				m_fRotDeltaX += 0.1f;
-				D3DXMatrixRotationY(&matRY, m_fRotDeltaX);
-				break;
-			case M_LHAND:
+		//if (*m_isBreakTime)//이즈 펄스로 할거임 우선 무조껀 if문 들어가게 수정.
+		//{
+		//	switch (m_eCharater)
+		//	{
+		//	case M_BODY:
+		//		break;
+		//	case M_HEAD:
+		//		//if()무슨 값이 false이면 흔들자.
+		//		m_fRotDeltaX += 0.1f;
+		//		D3DXMatrixRotationY(&matRY, m_fRotDeltaX);
+		//		break;
+		//	case M_LHAND:
 
-				if (m_fRotDeltaX < 1.0f && m_isturn == false)
-				{
-					m_fRotDeltaX += 0.05;
-				}
-				else
-				{
-					m_isturn = true;
-					m_fRotDeltaX -= 0.05f;
-					if (m_fRotDeltaX < -1.0)
-						m_isturn = false;
-				}
-				D3DXMatrixRotationX(&matRY, m_fRotDeltaX);
+		//		if (m_fRotDeltaX < 1.0f && m_isturn == false)
+		//		{
+		//			m_fRotDeltaX += 0.05;
+		//		}
+		//		else
+		//		{
+		//			m_isturn = true;
+		//			m_fRotDeltaX -= 0.05f;
+		//			if (m_fRotDeltaX < -1.0)
+		//				m_isturn = false;
+		//		}
+		//		D3DXMatrixRotationX(&matRY, m_fRotDeltaX);
 
-				break;
-			case M_RHAND:
+		//		break;
+		//	case M_RHAND:
 
-				if (m_fRotDeltaX < 1.0f && m_isturn == true)
-				{
-					m_fRotDeltaX += 0.05;
-				}
-				else
-				{
-					m_isturn = false;
-					m_fRotDeltaX -= 0.05f;
-					if (m_fRotDeltaX < -1.0)
-						m_isturn = true;
-				}
-				D3DXMatrixRotationX(&matRY, m_fRotDeltaX);
-				break;
-			case M_LFOOT:
+		//		if (m_fRotDeltaX < 1.0f && m_isturn == true)
+		//		{
+		//			m_fRotDeltaX += 0.05;
+		//		}
+		//		else
+		//		{
+		//			m_isturn = false;
+		//			m_fRotDeltaX -= 0.05f;
+		//			if (m_fRotDeltaX < -1.0)
+		//				m_isturn = true;
+		//		}
+		//		D3DXMatrixRotationX(&matRY, m_fRotDeltaX);
+		//		break;
+		//	case M_LFOOT:
 
-				if (m_fRotDeltaX < 1.0f && m_isturn == true)
-				{
-					m_fRotDeltaX += 0.05;
-				}
-				else
-				{
-					m_isturn = false;
-					m_fRotDeltaX -= 0.05f;
-					if (m_fRotDeltaX < -1.0)
-						m_isturn = true;
-				}
-				D3DXMatrixRotationX(&matRY, m_fRotDeltaX);
-				break;
-			case M_RFOOT:
+		//		if (m_fRotDeltaX < 1.0f && m_isturn == true)
+		//		{
+		//			m_fRotDeltaX += 0.05;
+		//		}
+		//		else
+		//		{
+		//			m_isturn = false;
+		//			m_fRotDeltaX -= 0.05f;
+		//			if (m_fRotDeltaX < -1.0)
+		//				m_isturn = true;
+		//		}
+		//		D3DXMatrixRotationX(&matRY, m_fRotDeltaX);
+		//		break;
+		//	case M_RFOOT:
 
-				if (m_fRotDeltaX < 1.0f && m_isturn == false)
-				{
-					m_fRotDeltaX += 0.05;
-				}
-				else
-				{
-					m_isturn = true;
-					m_fRotDeltaX -= 0.05f;
-					if (m_fRotDeltaX < -1.0)
-						m_isturn = false;
-				}
-				D3DXMatrixRotationX(&matRY, m_fRotDeltaX);
-				break;
-			}
-		}
+		//		if (m_fRotDeltaX < 1.0f && m_isturn == false)
+		//		{
+		//			m_fRotDeltaX += 0.05;
+		//		}
+		//		else
+		//		{
+		//			m_isturn = true;
+		//			m_fRotDeltaX -= 0.05f;
+		//			if (m_fRotDeltaX < -1.0)
+		//				m_isturn = false;
+		//		}
+		//		D3DXMatrixRotationX(&matRY, m_fRotDeltaX);
+		//		break;
+		//	}
+		//}
 
 
 		m_matLocalTM = matR * matRY * matT; // srt

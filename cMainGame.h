@@ -2,7 +2,7 @@
 class cCamera;
 class cGrid;
 class cPyramid;
-class cCubeMen;
+class cCubeMan;
 
 
 class cMainGame
@@ -19,7 +19,7 @@ private:
 	cCamera*		m_pCamera;
 	cGrid*			m_pGrid;
 	cPyramid*		m_pPyramid;
-	cCubeMen*		m_pCubeMen;
+	cCubeMan*		m_pCubeMen;
 
 
 public:

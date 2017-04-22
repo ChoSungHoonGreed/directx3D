@@ -6,6 +6,6 @@ public:
 	cRightLeg();
 	~cRightLeg();
 	virtual void Setup() override;
-
+	virtual void Update() override;
 };
 

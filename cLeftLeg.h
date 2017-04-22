@@ -7,7 +7,7 @@ public:
 	~cLeftLeg();
 
 	virtual void Setup() override;
-
+	virtual void Update() override;
 	//void Update();
 
 };

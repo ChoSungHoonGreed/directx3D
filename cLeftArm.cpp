@@ -13,6 +13,7 @@ cLeftArm::~cLeftArm()
 
 void cLeftArm::Setup()
 {
+
 	//내가한거
 	{
 		/*cCubeNode::Setup();
@@ -38,4 +39,31 @@ void cLeftArm::Setup()
 		}
 		m_vLocalPos.y = 0.3f;
 	}
+}
+
+void cLeftArm::Update()
+{
+	cCubeNode::Update();
+	float deltaX = cCubeNode::GetRotDeltaX();
+
+	D3DXMATRIXA16 matR, matRY, matT;
+	D3DXMatrixIdentity(&matR);
+	D3DXMatrixIdentity(&matT);
+	D3DXMatrixIdentity(&matRY);
+
+	D3DXMatrixTranslation(&matT, m_vLocalPos.x, m_vLocalPos.y, m_vLocalPos.z);
+
+	if (deltaX < 1.0f && m_isturn == false)
+	{
+		deltaX += 0.05f;
+	}
+	else
+	{
+		m_isturn = true;
+		deltaX -= 0.05f;
+		if (deltaX < -1.0)
+			m_isturn = false;
+	}
+	D3DXMatrixRotationX(&matRY, deltaX);
+
 }
