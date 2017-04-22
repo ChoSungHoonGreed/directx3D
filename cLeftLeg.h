@@ -1,12 +1,14 @@
 #pragma once
 #include "cCubeNode.h"
-
-class cLeftLeg : public cCubeNode
+class cLeftLeg :public cCubeNode
 {
 public:
 	cLeftLeg();
 	~cLeftLeg();
 
-	virtual void Setup() override;	// << :
+	virtual void Setup() override;
+
+	//void Update();
+
 };
 

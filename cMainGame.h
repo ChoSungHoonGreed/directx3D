@@ -1,9 +1,9 @@
 #pragma once
-class cCubePC;
 class cCamera;
 class cGrid;
 class cPyramid;
-class cCubeMan;
+class cCubeMen;
+
 
 class cMainGame
 {
@@ -12,11 +12,16 @@ public:
 	~cMainGame();
 
 private:
-	//cCubePC*	m_pCubePC;
-	cCamera*	m_pCamera;
-	cGrid*		m_pGrid;
-	cPyramid*	m_pPyramid;
-	cCubeMan*	m_pCubeMan;
+	//LPDIRECT3D9				m_pD3D;
+	//LPDIRECT3DDEVICE9		m_pD3DDevice;
+
+
+	cCamera*		m_pCamera;
+	cGrid*			m_pGrid;
+	cPyramid*		m_pPyramid;
+	cCubeMen*		m_pCubeMen;
+
+
 public:
 	void Setup();
 	void Update();
@@ -24,4 +29,6 @@ public:
 
 	void WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	void Set_Light();
+
 };
+

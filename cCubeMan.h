@@ -1,17 +1,17 @@
 #pragma once
-#include "cCharacter.h"
-
+#include"cCharacter.h"
 class cCubeNode;
 
-class cCubeMan : public cCharacter
+class cCubeMen : public cCharacter
 {
 public:
-	cCubeMan();
-	~cCubeMan();
-public:
-	cCubeNode*	m_pRoot;
-	
-	D3DMATERIAL9	m_stMaterial;
+	cCubeMen();
+	~cCubeMen();
+
+public: // 각각의 객채를 가지고있고 노드에서 처리
+	cCubeNode*			m_pRoot;
+	D3DMATERIAL9		m_stMtl;
+
 
 	virtual void Setup() override;
 	virtual void Update() override;

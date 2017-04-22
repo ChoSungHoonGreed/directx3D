@@ -5,7 +5,7 @@ class cRightLeg : public cCubeNode
 public:
 	cRightLeg();
 	~cRightLeg();
+	virtual void Setup() override;
 
-	virtual void Setup() override;	// << :
 };
 

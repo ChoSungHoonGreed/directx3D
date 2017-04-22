@@ -5,10 +5,12 @@ public:
 	cPyramid();
 	~cPyramid();
 private:
-	std::vector<ST_PC_VERTEX> m_vecLineVertex;
-	std::vector<ST_PC_VERTEX> m_vecTriangleVertex;
+	std::vector<ST_PC_VERTEX>	m_vecVertex;
+
 public:
 	void Setup();
 	void Render();
+
+	//Gizmo
 };
 
