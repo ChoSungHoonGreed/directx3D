@@ -7,6 +7,7 @@ cCubeNode::cCubeNode()
 	, m_fRotDeltaX(0.0f)
 	, m_pParentWorldTM(NULL)//<<:선생님추가
 	, m_isturn(false)
+	
 	//,m_isBreakTime(false)
 
 	//>::
@@ -15,6 +16,7 @@ cCubeNode::cCubeNode()
 {
 	D3DXMatrixIdentity(&m_matWorldTM);
 	D3DXMatrixIdentity(&m_matLocalTM);
+	D3DXMatrixIdentity(&m_matR);
 
 }
 
@@ -34,7 +36,7 @@ void cCubeNode::AddChild(cCubeNode * pChild)
 	{//
 
 		pChild->m_pParentWorldTM = &m_matWorldTM;
-		//pChild->m_isBreakTime = m_isBreakTime;
+		pChild->m_isBreakTime = m_isBreakTime;
 		m_vecChild.push_back(pChild);
 	}
 }
@@ -60,28 +62,6 @@ void cCubeNode::Setup()
 
 void cCubeNode::Update()
 {
-	{//내가한거
-	 /*D3DXMATRIXA16 matR, matRX;
-	 D3DXMatrixRotationX(&matRX, m_fRotDeltaX);
-
-	 matR = matRX;
-
-	 D3DXMATRIXA16 matT;
-	 D3DXMatrixTranslation(&matT, m_vLocalPos.x, m_vLocalPos.y, m_vLocalPos.z);
-
-	 m_matLocalTM = matR*matT;
-
-	 m_matWorldTM = m_matLocalTM*(*m_pParentWorldTM);
-
-
-	 for (int i = 0; i < m_vecChild.size(); ++i)
-	 {
-	 m_vecChild[i]->SetparentWorldTM(m_pParentWorldTM);
-	 m_vecChild[i]->SetRotDeltaX(m_fRotDeltaX);
-	 m_vecChild[i]->Update();
-	 }*/
-	}
-	//선생님 코드
 	{
 		cCubePNT::Update();
 
@@ -175,7 +155,7 @@ void cCubeNode::Update()
 		//}
 
 
-		m_matLocalTM = matR * matRY * matT; // srt
+		m_matLocalTM = matR * m_matR * matT; // srt
 		m_matWorldTM = m_matLocalTM;
 
 		if (m_pParentWorldTM)

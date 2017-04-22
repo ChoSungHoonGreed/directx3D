@@ -14,6 +14,7 @@ cLeftArm::~cLeftArm()
 void cLeftArm::Setup()
 {
 
+	deltaX = cCubeNode::GetRotDeltaX();
 	//내가한거
 	{
 		/*cCubeNode::Setup();
@@ -43,11 +44,10 @@ void cLeftArm::Setup()
 
 void cLeftArm::Update()
 {
-	cCubeNode::Update();
-	float deltaX = cCubeNode::GetRotDeltaX();
+	
 
-	D3DXMATRIXA16 matR, matRY, matT;
-	D3DXMatrixIdentity(&matR);
+	D3DXMATRIXA16   matRY, matT;
+	
 	D3DXMatrixIdentity(&matT);
 	D3DXMatrixIdentity(&matRY);
 
@@ -61,9 +61,11 @@ void cLeftArm::Update()
 	{
 		m_isturn = true;
 		deltaX -= 0.05f;
+
 		if (deltaX < -1.0)
 			m_isturn = false;
 	}
-	D3DXMatrixRotationX(&matRY, deltaX);
+	D3DXMatrixRotationX(&m_matR, deltaX);
+	cCubeNode::Update();
 
 }

@@ -9,7 +9,7 @@ protected:
 	D3DXVECTOR3			m_vLocalPos;	//현제의 위치
 	D3DXMATRIXA16		m_matLocalTM;	//현제 트렌스메트릭스
 	D3DXMATRIXA16		m_matWorldTM;	//트렌스 월드 메트릭스
-
+	D3DXMATRIXA16		m_matR;
 	MOVECHARACTER		m_eCharater;	//케릭터 부위 관련
 	bool				m_isturn;
 
