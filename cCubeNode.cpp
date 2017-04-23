@@ -203,7 +203,7 @@ void cCubeNode::Render()//·»´õ ·»´õ ·»´õ
 		//: to do someting
 	}
 
-	//¼±»ý´ÔÄÚµå
+	
 	{
 		g_pD3DDevice->SetTransform(D3DTS_WORLD, &m_matWorldTM);
 		cCubePNT::Render();

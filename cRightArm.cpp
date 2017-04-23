@@ -13,18 +13,7 @@ cRightArm::~cRightArm()
 
 void cRightArm::Setup()
 {
-	//내가한거
-	{
-		/*cCubeNode::Setup();
-		for (int i = 0; i < m_vecVertex.size(); i++)
-		{
-		m_vecVertex[i].p = m_vecVertex[i].p + D3DXVECTOR3(-5, 5, 0);
-		D3DXVec3Scale(&m_vecVertex[i].p, &m_vecVertex[i].p, 0.25f);
-		m_vecVertex[i].p.y *= 1.64f;
-		m_vecVertex[i].p.x *= 0.7f;
-		}*/
-	}
-	//선생님이 한거
+
 	{
 		cCubeNode::Setup();
 		m_eCharater = M_RHAND;
@@ -43,27 +32,27 @@ void cRightArm::Setup()
 void cRightArm::Update()
 {
 	
-	float deltaX = cCubeNode::GetRotDeltaX();
+	
 
-	D3DXMATRIXA16 matR, matRY, matT;
-	D3DXMatrixIdentity(&matR);
-	D3DXMatrixIdentity(&matRY);
-	D3DXMatrixIdentity(&matT);
+	//D3DXMATRIXA16 matR, matRY, matT;
+	//D3DXMatrixIdentity(&matR);
+	//D3DXMatrixIdentity(&matRY);
+	//D3DXMatrixIdentity(&matT);
+	//
+	//D3DXMatrixTranslation(&matT, m_vLocalPos.x, m_vLocalPos.y, m_vLocalPos.z);
 
-	D3DXMatrixTranslation(&matT, m_vLocalPos.x, m_vLocalPos.y, m_vLocalPos.z);
-
-	if (deltaX < 1.0f && m_isturn == false)
+	if (GetRotDeltaX() < 1.0f && m_isturn == true)
 	{
-		deltaX += 0.05;
+		SetRotDeltaX(GetRotDeltaX() + 0.05);
 	}
 	else
 	{
-		m_isturn = true;
-		deltaX -= 0.05f;
-		if (deltaX < -1.0)
-			m_isturn = false;
+		m_isturn = false;
+		SetRotDeltaX(GetRotDeltaX() - 0.05);
+		if (GetRotDeltaX() < -1.0)
+			m_isturn = true;
 	}
-	D3DXMatrixRotationX(&matRY, deltaX);
+	D3DXMatrixRotationX(&m_matR, GetRotDeltaX());
 	cCubeNode::Update();
 
 }
