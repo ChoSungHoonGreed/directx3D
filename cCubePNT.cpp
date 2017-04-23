@@ -13,69 +13,7 @@ cCubePNT::~cCubePNT()
 
 void cCubePNT::Setup()
 {
-	{//내가한거
-	 //ST_PNT_VERTEX v;
-	 //std::vector<ST_PNT_VERTEX> temp;
-
-	 //v.c = D3DCOLOR_XRGB(0, 255, 255);
-	 //v.p = D3DXVECTOR3(-1.0f, -1.0f, -1.0f); temp.push_back(v);
-	 //v.p = D3DXVECTOR3(-1.0f, 1.0f, -1.0f); temp.push_back(v);
-	 ////v.c = D3DCOLOR_XRGB(255, 255, 255);
-	 //v.p = D3DXVECTOR3(1.0f, 1.0f, -1.0f);  temp.push_back(v);
-	 //v.p = D3DXVECTOR3(1.0f, -1.0f, -1.0f); temp.push_back(v);
-	 ////v.c = D3DCOLOR_XRGB(100, 100, 100);
-	 //v.p = D3DXVECTOR3(-1.0f, -1.0f, 1.0f); temp.push_back(v);
-	 //v.p = D3DXVECTOR3(-1.0f, 1.0f, 1.0f);  temp.push_back(v);
-	 ////v.c = D3DCOLOR_XRGB(30, 255, 30);
-	 //v.p = D3DXVECTOR3(1.0f, 1.0f, 1.0f);   temp.push_back(v);
-	 //v.p = D3DXVECTOR3(1.0f, -1.0f, 1.0f);  temp.push_back(v);
-
-	 //{
-	 //	m_vecVertex.push_back(temp[0]);
-	 //	m_vecVertex.push_back(temp[1]);
-	 //	m_vecVertex.push_back(temp[2]);
-	 //	m_vecVertex.push_back(temp[0]);
-	 //	m_vecVertex.push_back(temp[2]);
-	 //	m_vecVertex.push_back(temp[3]);
-
-	 //	m_vecVertex.push_back(temp[4]);
-	 //	m_vecVertex.push_back(temp[6]);
-	 //	m_vecVertex.push_back(temp[5]);
-	 //	m_vecVertex.push_back(temp[4]);
-	 //	m_vecVertex.push_back(temp[7]);
-	 //	m_vecVertex.push_back(temp[6]);
-
-	 //	m_vecVertex.push_back(temp[4]);
-	 //	m_vecVertex.push_back(temp[5]);
-	 //	m_vecVertex.push_back(temp[1]);
-	 //	m_vecVertex.push_back(temp[4]);
-	 //	m_vecVertex.push_back(temp[1]);
-	 //	m_vecVertex.push_back(temp[0]);
-
-	 //	m_vecVertex.push_back(temp[3]);
-	 //	m_vecVertex.push_back(temp[2]);
-	 //	m_vecVertex.push_back(temp[6]);
-	 //	m_vecVertex.push_back(temp[3]);
-	 //	m_vecVertex.push_back(temp[6]);
-	 //	m_vecVertex.push_back(temp[7]);
-
-	 //	m_vecVertex.push_back(temp[1]);
-	 //	m_vecVertex.push_back(temp[5]);
-	 //	m_vecVertex.push_back(temp[6]);
-	 //	m_vecVertex.push_back(temp[1]);
-	 //	m_vecVertex.push_back(temp[6]);
-	 //	m_vecVertex.push_back(temp[2]);
-
-	 //	m_vecVertex.push_back(temp[4]);
-	 //	m_vecVertex.push_back(temp[0]);
-	 //	m_vecVertex.push_back(temp[3]);
-	 //	m_vecVertex.push_back(temp[4]);
-	 //	m_vecVertex.push_back(temp[3]);
-	 //	m_vecVertex.push_back(temp[7]);
-	 //}
-	 // : to dosometing
-	}
-
+	
 	{
 		std::vector<ST_PNT_VERTEX> vecVertex;
 
@@ -198,8 +136,6 @@ void cCubePNT::Update()
 void cCubePNT::Render()
 {
 	// : to dosometing
-
-	//선생님 코드
 	{
 		g_pD3DDevice->SetFVF(ST_PNT_VERTEX::FVF);
 		g_pD3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLELIST, m_vecVertex.size() / 3, &m_vecVertex[0], sizeof(ST_PNT_VERTEX));

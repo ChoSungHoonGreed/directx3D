@@ -19,51 +19,17 @@ cCubeMan::cCubeMan()
 cCubeMan::~cCubeMan()
 {
 	//:>
-	//:>선생님
 	if (m_pRoot)
 		m_pRoot->Destroy();
-	//SAFE_DELETE(m_pRoot);
+	
 }
 
 void cCubeMan::Setup()
 {
 
-	{//내가한거
-	 //m_pRoot = new cCubeNode; //엠피루트생성
-
-	 ////머리
-	 //cCubeHead* head = new cCubeHead;
-	 //cCubeBody* body = new cCubeBody;
-	 //cLeftArm* leftArm = new cLeftArm;
-	 //cRightArm* rArm = new cRightArm;
-	 //cCubeLeftLong* Llong = new cCubeLeftLong;
-	 //cCubeRightLong* Rlong = new cCubeRightLong;
 
 
-
-	 //rArm->Setup();
-
-	 //head->Setup();
-	 //body->Setup();
-	 //leftArm->Setup();
-	 //Llong->Setup();
-	 //Rlong->Setup();
-
-	 ////몸
-	 //m_pRoot->AddChild(head);
-
-	 //m_pRoot->AddChild(body);
-
-	 //m_pRoot->AddChild(leftArm);
-	 //m_pRoot->AddChild(rArm);
-
-	 //m_pRoot->AddChild(Llong);
-	 //m_pRoot->AddChild(Rlong);
-
-
-	}
-
-	{//선생님
+	{
 		cCharacter::Setup();
 		ZeroMemory(&m_stMtl, sizeof(D3DMATERIAL9));
 		m_stMtl.Diffuse = D3DXCOLOR(0.7f, 0.7f, 0.7f, 1.0f);
@@ -108,15 +74,7 @@ void cCubeMan::Setup()
 
 void cCubeMan::Update()
 {
-	{//내가한거
-	 /*	cCharacter::Update();
 
-	 m_pRoot->SetparentWorldTM(&m_matWorld);
-	 m_fRotY += 0.1f;
-	 m_pRoot->SetRotDeltaX(m_fRotY);
-	 m_pRoot->Update();*/
-	}
-	//선생님이 한거
 	{
 		cCharacter::Update();
 
@@ -130,8 +88,6 @@ void cCubeMan::Update()
 
 void cCubeMan::Render()
 {
-	//m_pRoot->Render();
-
 	{
 		g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
 		g_pD3DDevice->SetMaterial(&m_stMtl);

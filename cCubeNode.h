@@ -11,8 +11,8 @@ protected:
 	D3DXMATRIXA16		m_matWorldTM;	//트렌스 월드 메트릭스
 	D3DXMATRIXA16		m_matR;
 	MOVECHARACTER		m_eCharater;	//케릭터 부위 관련
-	bool				m_isturn;
-	bool				m_isrest;
+	bool				m_isturn;		//레프트냐 라이트냐 판단(움직임 관련)
+	bool				m_isrest;		//가만히 있을때 움직일 함수.
 
 	//cCubePNT			m_vecPNT;//<<::
 
