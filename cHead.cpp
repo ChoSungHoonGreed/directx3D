@@ -51,16 +51,33 @@ void cHead::Setup()
 
 void cHead::Update()
 {
+	
+	if (*GetBreakTime() == true)
+	{
+		m_isrest = false;
+		SetRotDeltaX(GetRotDeltaX() + 0.1f);
+		D3DXMatrixRotationX(&m_matR, GetRotDeltaX());
+		
+	}
+	//else
+	//{
+	//	m_isrest = true;
+	//	if (GetRotDeltaX() < 1.0f && m_isrest == true)
+	//	{
+	//		SetRotDeltaX(GetRotDeltaX() + 0.01f);
+	//		
+	//	}
+	//	else
+	//	{
+	//		m_isrest = false;
+	//		SetRotDeltaX(GetRotDeltaX() - 0.01f);
+	//		if (GetRotDeltaX() < -1.0f)
+	//			m_isrest = true;
+	//	}
+	//	D3DXMatrixRotationY(&m_matR, GetRotDeltaX());
+	//	
+	//}
+	
 	cCubeNode::Update();
-	float deltaX = cCubeNode::GetRotDeltaX();
-
-	D3DXMATRIXA16 matR, matRY, matT;
-	D3DXMatrixIdentity(&matR);
-	D3DXMatrixIdentity(&matT);
-	D3DXMatrixIdentity(&matRY);
-
-
-	deltaX += 0.1f;
-	D3DXMatrixRotationY(&matRY, deltaX);
 }
 

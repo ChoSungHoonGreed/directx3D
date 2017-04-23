@@ -12,6 +12,7 @@ protected:
 	D3DXMATRIXA16		m_matR;
 	MOVECHARACTER		m_eCharater;	//케릭터 부위 관련
 	bool				m_isturn;
+	bool				m_isrest;
 
 	//cCubePNT			m_vecPNT;//<<::
 

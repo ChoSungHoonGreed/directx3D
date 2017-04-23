@@ -44,26 +44,26 @@ void cRightLeg::Update()
 {
 	
 
-	
-	//D3DXMATRIXA16 matR, matRY, matT;
-	//D3DXMatrixIdentity(&matR);
-	//D3DXMatrixIdentity(&matT);
-	//D3DXMatrixIdentity(&matRY);
-	//
-	//D3DXMatrixTranslation(&matT, m_vLocalPos.x, m_vLocalPos.y, m_vLocalPos.z);
-	if (GetRotDeltaX() < 1.0f && m_isturn == false)
+	if (*GetBreakTime() == true)
 	{
-		SetRotDeltaX(GetRotDeltaX() +0.05);
+		if (GetRotDeltaX() < 1.0f && m_isturn == false)
+		{
+			SetRotDeltaX(GetRotDeltaX() + 0.05);
+		}
+		else
+		{
+			m_isturn = true;
+			SetRotDeltaX(GetRotDeltaX() - 0.05f);
+			if (GetRotDeltaX() < -1.0)
+				m_isturn = false;
+		}
+		D3DXMatrixRotationX(&m_matR, GetRotDeltaX());
 	}
 	else
 	{
-		m_isturn = true;
-		SetRotDeltaX(GetRotDeltaX() - 0.05f);
-		if (GetRotDeltaX() < -1.0)
-			m_isturn = false;
+		SetRotDeltaX(0.0f);
+		D3DXMatrixRotationX(&m_matR, GetRotDeltaX());
 	}
-	D3DXMatrixRotationX(&m_matR, GetRotDeltaX());
-
 	cCubeNode::Update();
 
 }

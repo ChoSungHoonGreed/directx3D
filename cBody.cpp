@@ -48,6 +48,7 @@ void cBody::Setup()
 
 void cBody::Update()
 {
+
 	cCubeNode::Update();
 }
 

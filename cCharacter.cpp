@@ -82,7 +82,7 @@ void cCharacter::Update()
 	else if (GetKeyState('S') & 0x8000)
 	{
 		m_isBreakTimechar = true;
-		m_vPosition = m_vPosition - (m_vDirection*0.1f);
+		m_vPosition = m_vPosition - (m_vDirection * 0.01f);
 	}
 
 

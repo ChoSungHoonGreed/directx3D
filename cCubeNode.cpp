@@ -7,7 +7,7 @@ cCubeNode::cCubeNode()
 	, m_fRotDeltaX(0.0f)
 	, m_pParentWorldTM(NULL)//<<:¼±»ý´ÔÃß°¡
 	, m_isturn(false)
-	
+	,m_isrest(true)
 	//,m_isBreakTime(false)
 
 	//>::
