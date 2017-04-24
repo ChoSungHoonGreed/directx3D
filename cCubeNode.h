@@ -6,6 +6,7 @@ public:
 	cCubeNode();
 
 protected:
+	float			m_fRotX;
 	D3DXVECTOR3		m_vLocalPosition;
 	D3DXMATRIXA16	m_matLocalTransMatrix;
 	D3DXMATRIXA16	m_matWorldTransMatrix;
