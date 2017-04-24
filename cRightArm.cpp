@@ -25,11 +25,15 @@ void cRightArm::Setup()
 		D3DXMatrixTranslation(&matT, 0.3f, -0.3f, 0.0f);
 		mat = matS*matT;
 
-		for (size_t i = 0; i < m_vecVertex.size(); i+=3)
+		for (size_t i = 0; i < m_vecVertex.size(); i+=6)
 		{
-			m_vecVertex[i].t = D3DXVECTOR2(0.25f, 0.0f);
+			m_vecVertex[i].t = D3DXVECTOR2(0.02912, 0.02912f);
 			m_vecVertex[i+1].t = D3DXVECTOR2(0, 0.15f);
 			m_vecVertex[i + 2].t = D3DXVECTOR2(0.25, 0.15f);
+
+			m_vecVertex[i+ 3].t = D3DXVECTOR2(0.125f, 0.0f);
+			m_vecVertex[i + 4].t = D3DXVECTOR2(0, 0.115f);
+			m_vecVertex[i + 5].t = D3DXVECTOR2(0.25, 0.115f);
 			
 		}
 
