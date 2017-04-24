@@ -14,6 +14,7 @@ protected:
 	bool				m_isturn;		//레프트냐 라이트냐 판단(움직임 관련)
 	bool				m_isrest;		//가만히 있을때 움직일 함수.
 
+	
 	//cCubePNT			m_vecPNT;//<<::
 
 	std::vector<cCubeNode*>	m_vecChild;	//나중에 찾을 것

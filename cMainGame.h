@@ -3,7 +3,7 @@ class cCamera;
 class cGrid;
 class cPyramid;
 class cCubeMan;
-
+class cCubePNT;
 
 class cMainGame
 {
@@ -21,6 +21,7 @@ private:
 	cPyramid*		m_pPyramid;
 	cCubeMan*		m_pCubeMen;
 
+	
 
 public:
 	void Setup();

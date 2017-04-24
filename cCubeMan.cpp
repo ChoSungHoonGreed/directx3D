@@ -10,6 +10,7 @@
 #include "cRightLeg.h"
 cCubeMan::cCubeMan()
 	:m_pRoot(NULL)
+	, m_pTexture(NULL)
 	//:>
 {
 
@@ -21,16 +22,20 @@ cCubeMan::~cCubeMan()
 	//:>
 	if (m_pRoot)
 		m_pRoot->Destroy();
+
+	SAFE_RELEASE(m_pTexture);
 	
 }
 
 void cCubeMan::Setup()
 {
-
-
+	
 
 	{
 		cCharacter::Setup();
+		D3DXCreateTextureFromFile(g_pD3DDevice, "image/mmm.png", &m_pTexture);
+
+
 		ZeroMemory(&m_stMtl, sizeof(D3DMATERIAL9));
 		m_stMtl.Diffuse = D3DXCOLOR(0.7f, 0.7f, 0.7f, 1.0f);
 		m_stMtl.Ambient = D3DXCOLOR(0.7f, 0.7f, 0.7f, 1.0f);
@@ -40,6 +45,7 @@ void cCubeMan::Setup()
 		pBody->Setup();
 		pBody->SetparentWorldTM(&m_matWorld);
 		pBody->SetBreakTime(&m_isBreakTimechar);
+		
 		m_pRoot = pBody;
 
 		cHead* phead = new cHead;
@@ -92,10 +98,13 @@ void cCubeMan::Render()
 		g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
 		g_pD3DDevice->SetMaterial(&m_stMtl);
 
+
 		cCharacter::Render();
 		D3DXMATRIXA16 matWorld;
 		D3DXMatrixIdentity(&matWorld);
 		g_pD3DDevice->SetTransform(D3DTS_WORLD, &matWorld);
+		g_pD3DDevice->SetTexture(0, m_pTexture);
+		
 		if (m_pRoot)
 			m_pRoot->Render();
 	}

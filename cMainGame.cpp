@@ -17,6 +17,7 @@ cMainGame::cMainGame()
 	, m_pGrid(NULL)
 	, m_pPyramid(NULL)
 	, m_pCubeMen(NULL)
+	
 {
 }
 
@@ -30,12 +31,13 @@ cMainGame::~cMainGame()
 	SAFE_DELETE(m_pGrid);
 	SAFE_DELETE(m_pPyramid);
 	SAFE_DELETE(m_pCubeMen);
+	
+
 	g_pDeviceManager->Destroy();
 }
 
 void cMainGame::Setup()
 {
-
 
 
 	m_pCubeMen = new cCubeMan;
@@ -69,6 +71,11 @@ void cMainGame::Render()
 {
 	g_pD3DDevice->Clear(NULL, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 100, 255), 1.0f, 0);
 	g_pD3DDevice->BeginScene();
+
+	//g_pD3DDevice->SetTexture(0, m_pTexture);
+
+
+	
 
 	if (m_pGrid) m_pGrid->Render();
 
