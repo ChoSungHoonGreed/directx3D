@@ -8,9 +8,8 @@ cDeviceManager::cDeviceManager()
 
 	m_pD3D = Direct3DCreate9(D3D_SDK_VERSION);
 
-	D3DCAPS9 stCaps;
-	int nVertexProcessing;
-
+	D3DCAPS9	stCaps;
+	int			nVertexProcessing;
 	m_pD3D->GetDeviceCaps(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, &stCaps);
 	if (stCaps.DevCaps & D3DDEVCAPS_HWTRANSFORMANDLIGHT)
 	{
@@ -25,11 +24,16 @@ cDeviceManager::cDeviceManager()
 	ZeroMemory(&stD3DPP, sizeof(D3DPRESENT_PARAMETERS));
 	stD3DPP.SwapEffect = D3DSWAPEFFECT_DISCARD;
 	stD3DPP.Windowed = TRUE;
-	stD3DPP.AutoDepthStencilFormat = D3DFMT_D16;
 	stD3DPP.BackBufferFormat = D3DFMT_UNKNOWN;
 	stD3DPP.EnableAutoDepthStencil = TRUE;
+	stD3DPP.AutoDepthStencilFormat = D3DFMT_D16;
 
-	m_pD3D->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, g_hWnd, nVertexProcessing, &stD3DPP, &m_pD3DDevice);
+	m_pD3D->CreateDevice(D3DADAPTER_DEFAULT,
+		D3DDEVTYPE_HAL,
+		g_hWnd,
+		nVertexProcessing,
+		&stD3DPP,
+		&m_pD3DDevice);
 }
 
 
@@ -37,20 +41,18 @@ cDeviceManager::~cDeviceManager()
 {
 }
 
-LPDIRECT3DDEVICE9 cDeviceManager::GetDevice()
+LPDIRECT3DDEVICE9	cDeviceManager::GetDevice()
 {
 	return m_pD3DDevice;
 }
+
 void cDeviceManager::Destroy()
 {
 	SAFE_RELEASE(m_pD3D);
 
 	ULONG error = m_pD3DDevice->Release();
 
-#ifdef _DEBUG
-	assert(error == 0 && "생성된 객체중 해제되지 않은것이 있습니다.");
-	//거짓인 경우에 발생함 "그리고 뒤에 문장을 발생함. 문장이 있으니 무조건 참"
+#ifdef _DEBUG 
+	assert(error == 0 && "생성된 객체중 해제되지 않은것이 있슴");
 #endif
-
-	SAFE_RELEASE(m_pD3DDevice);
 }

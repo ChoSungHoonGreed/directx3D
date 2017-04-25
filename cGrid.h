@@ -1,4 +1,7 @@
 #pragma once
+
+class cPyramid;
+
 class cGrid
 {
 public:
@@ -6,10 +9,11 @@ public:
 	~cGrid();
 
 private:
-	std::vector<ST_PC_VERTEX> m_vecVertex;
-	//	std::vector<
+	std::vector<ST_PC_VERTEX>	m_vecVertex;
+	std::vector<cPyramid*>		m_vecPyramid;
+
 public:
-	void Setup();//인자는 자기가 설정
+	void Setup(int nNumHalfTile = 15, float fInterval = 1.0f);
 	void Render();
 };
 
