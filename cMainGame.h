@@ -38,6 +38,9 @@ public:
 	void WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 	void Set_Light();
+	void Set_Light100();
+	void Set_Light200();
+
 	// << : 
 };
 

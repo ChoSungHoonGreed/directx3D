@@ -58,6 +58,10 @@ void cMainGame::Setup()
 	m_pGrid->Setup();
 
 	Set_Light();
+	Set_Light100();
+	Set_Light200();
+	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
+	//g_pD3DDevice->SetRenderState(, true);
 }
 
 void cMainGame::Update()
@@ -113,17 +117,55 @@ void cMainGame::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 void cMainGame::Set_Light()
 {
 	D3DLIGHT9 stLight;
-	{
+	
 		ZeroMemory(&stLight, sizeof(D3DLIGHT9));
 		stLight.Type = D3DLIGHT_DIRECTIONAL;
-		stLight.Ambient = D3DXCOLOR(0.8f, 0.8f, 0.8f, 1.0f);
-		stLight.Diffuse = D3DXCOLOR(0.8f, 0.8f, 0.8f, 1.0f);
+		
+		stLight.Ambient = D3DXCOLOR(0.5f, 0.5f, 0.5f, 1.0f);
+		stLight.Diffuse = D3DXCOLOR(0.0f, 0.0f, 1.0f, 1.0f);
 		stLight.Specular = D3DXCOLOR(0.8f, 0.8f, 0.8f, 1.0f);
 		D3DXVECTOR3 vDir(1.0f, -1.0f, 1.0f);
 		D3DXVec3Normalize(&vDir, &vDir);
 		stLight.Direction = vDir;
+		//stLight.
 		g_pD3DDevice->SetLight(0, &stLight);
-	}
+	
 
 	g_pD3DDevice->LightEnable(0, true);
+}
+
+void cMainGame::Set_Light100()
+{
+	D3DLIGHT9 stLight;
+	ZeroMemory(&stLight, sizeof(D3DLIGHT9));
+	stLight.Type = D3DLIGHT_POINT;
+	stLight.Ambient = D3DXCOLOR(0.8f, 0.8f, 0.8f, 1.0f);
+	stLight.Diffuse = D3DXCOLOR(1.0f, 0.0f, 0.0f, 1.0f);
+	stLight.Specular = D3DXCOLOR(1.0f, 0.0f, 0.0f, 1.0f);
+	//stLight.Direction = D3DXVECTOR3(0.0, 0.0, 1.0f);
+	stLight.Position = D3DXVECTOR3(0.0f, 2.0f, 0.0f);
+	stLight.Range = 5.0f;
+	
+	g_pD3DDevice->SetLight(1, &stLight);
+	g_pD3DDevice->LightEnable(1, true);
+}
+
+void cMainGame::Set_Light200()
+{
+	D3DLIGHT9 stLight;
+	ZeroMemory(&stLight, sizeof(D3DLIGHT9)); // ÈÄ·¹½¬
+	stLight.Type = D3DLIGHT_SPOT;
+	stLight.Position = D3DXVECTOR3(0.0f, 1.0f, 10.0f);
+	stLight.Ambient = D3DXCOLOR(0.8f, 0.8f, 0.8f, 1.0f);
+	stLight.Diffuse = D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f);
+	stLight.Direction = D3DXVECTOR3(0.0f, 1.0f, 2.0f);
+	stLight.Theta = D3DX_PI / 0.6f;
+	stLight.Phi = D3DX_PI / 0.8f;
+	stLight.Range = 1.0f;
+	D3DXVECTOR3 vDir;
+	D3DXVec3Normalize(&vDir, &vDir);
+	g_pD3DDevice->SetLight(2, &stLight);
+	g_pD3DDevice->LightEnable(2, true);
+
+	
 }

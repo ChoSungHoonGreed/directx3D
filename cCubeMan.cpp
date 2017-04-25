@@ -98,4 +98,6 @@ void cCubeMan::Set_Material()
 	m_stMtl.Ambient = D3DXCOLOR(0.7f, 0.7f, 0.7f, 1.0f);
 	m_stMtl.Diffuse = D3DXCOLOR(0.0f, 0.0f, 1.0f, 1.0f);
 	m_stMtl.Specular = D3DXCOLOR(0.7f, 0.7f, 0.7f, 1.0f);
+
+
 }
