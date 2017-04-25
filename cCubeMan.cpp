@@ -32,14 +32,12 @@ void cCubeMan::Setup()
 	
 
 	{
+		Set_Material();
 		cCharacter::Setup();
 		D3DXCreateTextureFromFile(g_pD3DDevice, "image/mmm.png", &m_pTexture);
 
 
-		ZeroMemory(&m_stMtl, sizeof(D3DMATERIAL9));
-		m_stMtl.Diffuse = D3DXCOLOR(0.7f, 0.7f, 0.7f, 1.0f);
-		m_stMtl.Ambient = D3DXCOLOR(0.7f, 0.7f, 0.7f, 1.0f);
-		m_stMtl.Specular = D3DXCOLOR(0.7f, 0.7f, 0.7f, 1.0f);
+		
 
 		cBody* pBody = new cBody;
 		pBody->Setup();
@@ -109,4 +107,14 @@ void cCubeMan::Render()
 			m_pRoot->Render();
 	}
 	//:>
+}
+
+void cCubeMan::Set_Material()
+{
+
+	ZeroMemory(&m_stMtl, sizeof(D3DMATERIAL9));
+	m_stMtl.Diffuse = D3DXCOLOR(0.7f, 0.7f, 0.7f, 1.0f);
+	m_stMtl.Ambient = D3DXCOLOR(0.7f, 0.7f, 0.7f, 1.0f);
+	m_stMtl.Specular = D3DXCOLOR(0.7f, 0.7f, 0.7f, 1.0f);
+
 }

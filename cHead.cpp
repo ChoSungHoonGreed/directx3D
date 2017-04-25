@@ -82,8 +82,8 @@ void cHead::Update()
 	if (*GetBreakTime() == true)
 	{
 		m_isrest = false;
-		SetRotDeltaX(GetRotDeltaX() + 0.1f);
-		D3DXMatrixRotationX(&m_matR, GetRotDeltaX());
+	//	SetRotDeltaX(GetRotDeltaX() + 0.1f);
+	//D3DXMatrixRotationX(&m_matR, GetRotDeltaX());
 		
 	}
 	else if (*GetBreakTime() == false && m_isrest == false)
