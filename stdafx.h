@@ -77,7 +77,13 @@ struct ST_PNT_VERTEX
 
 	enum { FVF = D3DFVF_XYZ | D3DFVF_NORMAL | D3DFVF_TEX1 };
 };
+struct ST_TARGET_POINT
+{
+	D3DXVECTOR3 p;
+	D3DCOLOR c;
 
+	enum {FVF = D3DFVF_XYZ | D3DFVF_NORMAL };
+};
 
 #define SYNTHESIZE(varType, varName, funName)\
 protected: varType varName;\
@@ -87,4 +93,5 @@ public: inline void Set##funName(varType var){ varName = var; }
 
 // << :
 
+#include "cObject.h"//<<·Îµå
 #include "cDeviceManager.h"

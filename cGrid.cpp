@@ -67,6 +67,29 @@ void cGrid::Setup(int nNumHalfTile, float fInterval)
 	D3DXMatrixRotationX(&matR, -D3DX_PI / 2.0f);
 	pPyramid->Setup(D3DCOLOR_XRGB(0, 0, 255), matR);
 	m_vecPyramid.push_back(pPyramid);
+
+	ST_TARGET_POINT vectarpoint;
+
+	vectarpoint.c = D3DCOLOR_XRGB(0, 0, 0, 1.0);
+	//12°³ÀÇ Å¸°Ù ÁÂÇ¥
+	vectarpoint.p = D3DXVECTOR3(-8, 0, 0); m_vecTarPoint.push_back(vectarpoint);
+	vectarpoint.p = D3DXVECTOR3(-4, 0, -8); m_vecTarPoint.push_back(vectarpoint);
+
+	vectarpoint.p = D3DXVECTOR3(-4, 0, -8); m_vecTarPoint.push_back(vectarpoint);
+	vectarpoint.p = D3DXVECTOR3(4, 0, -8); m_vecTarPoint.push_back(vectarpoint);
+	
+	vectarpoint.p = D3DXVECTOR3(4, 0, -8); m_vecTarPoint.push_back(vectarpoint);
+	vectarpoint.p = D3DXVECTOR3(8, 0, 0); m_vecTarPoint.push_back(vectarpoint);
+	
+	vectarpoint.p = D3DXVECTOR3(8, 0, 0); m_vecTarPoint.push_back(vectarpoint);
+	vectarpoint.p = D3DXVECTOR3(4, 0, 8); m_vecTarPoint.push_back(vectarpoint);
+
+	vectarpoint.p = D3DXVECTOR3(4, 0, 8); m_vecTarPoint.push_back(vectarpoint);
+	vectarpoint.p = D3DXVECTOR3(-4, 0, 8); m_vecTarPoint.push_back(vectarpoint);
+
+	vectarpoint.p = D3DXVECTOR3(-4, 0, 8); m_vecTarPoint.push_back(vectarpoint);
+	vectarpoint.p = D3DXVECTOR3(-8, 0, 0); m_vecTarPoint.push_back(vectarpoint);
+
 }
 
 void cGrid::Render()
@@ -82,6 +105,12 @@ void cGrid::Render()
 		m_vecVertex.size() / 2,
 		&m_vecVertex[0],
 		sizeof(ST_PC_VERTEX));
+
+	//g_pD3DDevice->SetFVF(ST_TARGET_POINT::FVF);
+	g_pD3DDevice->DrawPrimitiveUP(D3DPT_LINELIST,
+		m_vecTarPoint.size() /2,
+		&m_vecTarPoint[0],
+		sizeof(ST_TARGET_POINT));
 
 	for each(auto p in m_vecPyramid)
 	{

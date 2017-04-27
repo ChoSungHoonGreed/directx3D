@@ -1,5 +1,6 @@
 #pragma once
-class cCharacter
+#include "cCubePNT.h"
+class cCharacter :public cCubePNT
 {
 public:
 	cCharacter();

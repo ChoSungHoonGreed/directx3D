@@ -11,10 +11,10 @@ cBody::~cBody()
 {
 }
 
-void cBody::Setup()
+void cBody::Setup()//3Ω√ 16∫– ¥ŸΩ√ Ω√¿€
 {
 	cCubeNode::Setup();
-
+	
 	{
 		// : æ’ ¿≠ªÔ∞¢
 		m_vecVertex[0].t.x = (float)32 / 64;	m_vecVertex[0].t.y = (float)32 / 32;
