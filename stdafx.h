@@ -10,7 +10,7 @@
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 // Windows Header Files:
 #include <windows.h>
-
+using namespace std;
 // C RunTime Header Files
 #include <stdlib.h>
 #include <malloc.h>
@@ -30,11 +30,14 @@
 #include <d3dx9.h>
 #pragma comment(lib, "d3d9.lib")
 #pragma comment(lib, "d3dx9.lib")
-
+//>>:
+#pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console") 
+//<<:
 extern HWND	g_hWnd;
 #define SAFE_RELEASE(p) { if(p) p->Release(); p = NULL; }
 #define SAFE_DELETE(p) { if(p) delete p; p = NULL; }	// << :
-
+#define SAFE_ADD_REF(p){if(p) p->AddRef();}
+#define EPSILON 0.001f //¿¦½Ç·Ð 
 
 // >> : 
 #define SINGLETONE(class_name) \
@@ -85,13 +88,31 @@ struct ST_TARGET_POINT
 	enum {FVF = D3DFVF_XYZ | D3DFVF_NORMAL };
 };
 
+
 #define SYNTHESIZE(varType, varName, funName)\
 protected: varType varName;\
 public: inline varType Get##funName(void) const { return varName; }\
 public: inline void Set##funName(varType var){ varName = var; }
+
+#define SYNTHESIZE_PASS_BY_REF(varType, varName, funName)\
+protected: varType varName;\
+public: inline varType& Get##funName(void) { return varName; }\
+public: inline void Set##funName(varType& var){ varName = var; }
+
+#define SYNTHESIZE_ADD_REF(varType, varName, funName)\
+protected: varType varName;\
+public:virtual varType Get##funName(void)const{return varName;}\
+public: virtual void Set##funName(varType var) {\
+		if (varName != var) {\
+				SAFE_ADD_REF(var);\
+				SAFE_RELEASE(varName);\
+				varName = var;\
+		}\
+}
 
 
 // << :
 
 #include "cObject.h"//<<·Îµå
 #include "cDeviceManager.h"
+#include "cTextureManager.h"

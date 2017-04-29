@@ -7,6 +7,10 @@
 #include "cCamera.h"
 #include "cGrid.h"
 #include "cCubeMan.h"
+
+#include "cObject.h"
+#include "cObjLoader.h"
+
 // << :
 
 cMainGame::cMainGame()
@@ -26,6 +30,7 @@ cMainGame::~cMainGame()
 	SAFE_DELETE(m_pCamera);
 	SAFE_DELETE(m_pGrid);
 	SAFE_RELEASE(m_pTexture);
+
 	g_pDeviceManager->Destroy();
 }
 
@@ -57,6 +62,9 @@ void cMainGame::Setup()
 	m_pGrid = new cGrid;
 	m_pGrid->Setup();
 
+	
+	
+
 	Set_Light();
 	Set_Light100();
 	Set_Light200();
@@ -85,7 +93,7 @@ void cMainGame::Render()
 
 	if (m_pGrid) m_pGrid->Render();
 	if (m_pCubeMan) m_pCubeMan->Render();
-
+	
 	{
 		//
 		D3DXMATRIXA16 matWorld;

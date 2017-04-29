@@ -125,13 +125,13 @@ void cCubePNT::Setup()
 		m_vecVertex[i + 2].n = n;
 	}
 
-	ST_TARGET_POINT vectarpoint;
+//	ST_TARGET_POINT vectarpoint;
 
-	vectarpoint.c = D3DCOLOR_XRGB(0, 0, 0, 1.0);
+//	vectarpoint.c = D3DCOLOR_XRGB(0, 0, 0, 1.0);
 	//12°³ÀÇ Å¸°Ù ÁÂÇ¥
 
 
-	vectarpoint.p = D3DXVECTOR3(-8, 0, 0); m_vecTarPointPTN.push_back(vectarpoint);
+	/*vectarpoint.p = D3DXVECTOR3(-8, 0, 0); m_vecTarPointPTN.push_back(vectarpoint);
 	vectarpoint.p = D3DXVECTOR3(-4, 0, 8); m_vecTarPointPTN.push_back(vectarpoint);
 
 	vectarpoint.p = D3DXVECTOR3(-4, 0, 8); m_vecTarPointPTN.push_back(vectarpoint);
@@ -149,7 +149,7 @@ void cCubePNT::Setup()
 	vectarpoint.p = D3DXVECTOR3(-4, 0, -8); m_vecTarPointPTN.push_back(vectarpoint);
 	vectarpoint.p = D3DXVECTOR3(-8, 0, 0); m_vecTarPointPTN.push_back(vectarpoint);
 
-
+*/
 }
 void cCubePNT::Update()
 {

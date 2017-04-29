@@ -28,6 +28,7 @@ private:
 	cCamera*	m_pCamera;
 	cGrid*		m_pGrid;
 	cCubeMan*	m_pCubeMan;
+	
 
 	// >> : 
 	LPDIRECT3DTEXTURE9	 m_pTexture;

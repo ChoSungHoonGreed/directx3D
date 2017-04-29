@@ -73,7 +73,7 @@ void cBody::Setup()//3½Ã 16ºÐ ´Ù½Ã ½ÃÀÛ
 		m_vecVertex[35].t.x = (float)36 / 64;	m_vecVertex[35].t.y = (float)20 / 32;
 	}
 
-
+	printf("¸ö¶Ë");
 	D3DXMATRIXA16 matS, matT, mat;
 	D3DXMatrixScaling(&matS, 0.4f, 0.6f, 0.2f);
 	D3DXMatrixTranslation(&matT, 0.0f, 0.0f, 0.0f);
